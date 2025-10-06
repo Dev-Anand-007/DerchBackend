@@ -4,6 +4,8 @@
   "description": "A developer-inspired e-commerce platform dedicated to selling stylish and functional bags.  ",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
