@@ -10,6 +10,7 @@ const DB_NAME = constants.DB_NAME || "derch_db"; // fallback DB name
 
 if (!MONGO_URI) {
   logger.db("❌ MONGO_URI is not defined in .env");
+  console.log("❌ MONGO_URI is not defined in .env");
   throw new Error("MONGO_URI is not defined in .env");
 }
 
@@ -20,9 +21,11 @@ mongoose.connect(`${MONGO_URI}/${DB_NAME}`, {
 })
 .then(() => {
   logger.db(`✅ MongoDB connected to database: ${DB_NAME}`);
+  console.log(`✅ MongoDB connected to database: ${DB_NAME}`);
 })
 .catch((err) => {
   logger.db(`❌ MongoDB connection error: ${err.message}`);
+  console.log(`✅ MongoDB connected to database: ${DB_NAME}`);
   process.exit(1); // stop the app if DB connection fails
 });
 
