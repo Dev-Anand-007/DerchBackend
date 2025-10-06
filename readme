@@ -1,0 +1,115 @@
+🚀 Derch – E-Commerce Backend
+
+A complete, production-ready backend for an e-commerce platform built using Node.js, Express, and MongoDB. Supports user and admin APIs, secure authentication, product management, cart & wishlist, and order processing.
+
+🛠 Tech Stack & Tools
+
+✅ Node.js & Express.js – Server and routing
+✅ MongoDB & Mongoose – Database and ORM
+✅ Multer – Image/file upload
+✅ Joi – Data validation
+✅ JWT Authentication – Secure login and access
+✅ Role-based API – Separate Admin & User routes
+✅ Logging – Clean, production-ready logs for easier debugging
+✅ Postman – API testing and documentation
+
+⚡ Key Features
+
+✅ Admin APIs: Create, edit, delete products; manage users; fetch all orders
+✅ User APIs: Register, login, fetch products; manage cart and wishlist; place orders
+✅ Product Management: Upload images, fetch new/discounted products, sort by price
+✅ Secure Authentication: JWT-based with role checks for Admin & Users
+✅ Validation: API data validated with Joi
+✅ Error Handling: Consistent error messages and status codes
+✅ Logging: Structured logs for production-ready monitoring
+
+🌐 API Endpoints
+🟢 Admin APIs
+
+Admin Dashboard & Auth
+
+GET    /admin/                 → Admin home
+POST   /admin/create            → Create admin (development only)
+POST   /admin/login             → Admin login
+GET    /admin/check             → Verify admin token
+GET    /admin/fetch/:id         → Get admin by ID
+GET    /admin/fetchUser         → Get all users (Admin only)
+
+
+Products
+
+POST   /admin/product/create     → Create product (with image)
+PUT    /admin/product/:id        → Edit product (with optional image)
+DELETE /admin/product/delete/:id → Delete product
+GET    /admin/product/fetchalladmin → Fetch all products (Admin only)
+
+
+Orders
+
+GET /admin/orders/all → Fetch all orders
+
+🟢 User APIs
+
+Authentication
+
+POST /user/register     → Register new user
+POST /user/login        → Login
+GET  /user/check-auth   → Check authentication
+GET  /user/logout       → Logout
+
+
+Products
+
+GET /user/products/            → Fetch all products
+GET /user/products/discounted  → Fetch discounted products
+GET /user/products/new         → Fetch new products
+GET /user/products/sort        → Sort products by price
+GET /user/products/image/:id   → Fetch product image
+
+
+Cart
+
+GET    /user/cart/           → Fetch cart items
+POST   /user/cart/add/:id    → Add product to cart
+DELETE /user/cart/delete/:id → Remove product from cart
+
+
+Wishlist
+
+GET    /user/wishlist/           → Fetch wishlist items
+POST   /user/wishlist/add/:id    → Add product to wishlist
+DELETE /user/wishlist/delete/:id → Remove product from wishlist
+
+
+Orders
+
+GET /user/orders/       → Fetch user orders
+GET /user/orders/create → Create new order
+
+🔑 How to Run Locally
+
+1. Clone the repo:
+git clone https://github.com/Dev-Anand-007/Derch.git
+
+2. Navigate to the backend folder:
+cd Derch/backend
+
+3. Install dependencies:
+npm install
+
+4. Create a `.env` file with required environment variables:
+
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/derch_db   # Example: local MongoDB instance
+JWT_SECRET=abcd
+
+5. Start the server in development mode (Windows PowerShell / VS Code):
+
+$env:DEBUG="development:*"; npx nodemon app.js
+
+✅ What this does:
+- $env:DEBUG="development:*" → Enables debug logging for development modules. Any logger that uses the debug package with development:* namespace will print to console.
+- npx nodemon app.js → Starts your Node.js app and automatically restarts it on file changes, making development faster.
+
+6. Test APIs using Postman or your frontend app.
+
