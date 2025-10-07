@@ -34,6 +34,9 @@ app.use(cors(
 ))
 
 
+app.get('/',(req,res)=>{
+  res.send("Hello This is Derch Backend");
+})
 app.use('/api/auth',authRouter)
 app.use('/api/admin',adminRouter);
 app.use('/api/',usersRouter);
